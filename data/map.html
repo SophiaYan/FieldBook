@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Polygon Auto-completion</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map" style="height:500px; width:1000px"></div>
+<script>
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 15,
+    center: {lng: -88.1905968849262, lat: 40.187459845896406},
+    mapTypeId: google.maps.MapTypeId.TERRAIN
+  });
+
+
+  var pin = {lng:-88.1905968849262, lat:40.187459845896406}    
+  var coords = [
+      {
+        lng:-88.19181252208337,
+        lat:40.189224183467296
+      },
+      {
+        lng:-88.18939817770453,
+        lat:40.189222006973544
+      },
+      {
+        lng:-88.18938137644413,
+        lat:40.185698139112716
+      },
+      {
+        lng:-88.19179408042392,
+        lat:40.185694270189636
+      },
+      {
+        lng:-88.19181252208337,
+        lat:40.189224183467296
+      }
+  ];
+
+  var bermudaTriangle = new google.maps.Polygon({
+    paths: coords,
+    strokeColor: '#FF0000',
+    strokeOpacity: 0.8,
+    strokeWeight: 3,
+    fillColor: '#FF0000',
+    fillOpacity: 0.35
+  });
+  bermudaTriangle.setMap(map);
+    
+  var marker = new google.maps.Marker({
+    position: pin,
+    map: map,
+    title: 'yijun'
+  });
+}
+
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUNxLwlz1qtFd2ryB0U4I38HBDyP2zHYU&signed_in=true&callback=initMap"></script>
+  </body>
+</html>
